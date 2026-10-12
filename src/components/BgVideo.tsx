@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+/** Where the MP4s live. Empty = served from this site; set VITE_MEDIA_BASE to a CDN/bucket URL to offload them. */
+const MEDIA_BASE = ((import.meta.env.VITE_MEDIA_BASE as string | undefined) ?? '').replace(/\/$/, '');
+
 interface BgVideoProps {
   src: string;
   poster: string;
@@ -61,7 +64,7 @@ export function BgVideo({ src, poster, title, aspect = '16 / 9', className = '' 
           autoPlay
           preload="metadata"
         >
-          <source src={src} type="video/mp4" />
+          <source src={MEDIA_BASE ? `${MEDIA_BASE}${src.replace(/^\/media/, '')}` : src} type="video/mp4" />
         </video>
       )}
     </div>
