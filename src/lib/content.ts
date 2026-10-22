@@ -3,12 +3,21 @@ export const studio = {
   arabicName: 'رؤية',
   tagline: { en: 'AI production machine', ar: 'منظومة إنتاج بالذكاء الاصطناعي' },
   offices: [
-    { en: 'Riyadh, Saudi Arabia', ar: 'الرياض، السعودية' },
-    { en: 'Istanbul, Turkey', ar: 'إسطنبول، تركيا' },
+    {
+      city: { en: 'Riyadh, Saudi Arabia', ar: 'الرياض، السعودية' },
+      phone: '+966 53 923 3095',
+    },
+    {
+      city: { en: 'Istanbul, Turkey', ar: 'إسطنبول، تركيا' },
+      address: {
+        en: 'Lotus Office, No. 89, 19th Floor, next to Torium Mall, Saadet Dere district',
+        ar: 'لوتس أوفيس، رقم 89، الدور 19، بجوار مول توريوم، منطقة سعادة ديري',
+      },
+      phone: '+90 537 960 63 50',
+    },
   ],
   // TODO: confirm contact details.
   email: 'info@roaya.com',
-  phone: '+90 537 960 63 50',
   founded: 2018,
 };
 

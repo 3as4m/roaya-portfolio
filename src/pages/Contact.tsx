@@ -148,29 +148,37 @@ export function Contact() {
               </span>
             </a>
 
-            <a
-              href={`tel:${studio.phone.replace(/\s/g, '')}`}
-              className="group flex items-start gap-4 border-t border-line-soft/70 pt-6"
-            >
+            <div className="flex items-start gap-4 border-t border-line-soft/70 pt-6">
               <Phone size={17} className="mt-1 shrink-0 text-brulee" />
               <span>
                 <span className="label block">{pick(COPY.phone)}</span>
-                <span
-                  dir="ltr"
-                  className="mt-2 block w-fit text-[0.95rem] text-ink-100 transition-colors group-hover:text-brulee"
-                >
-                  {studio.phone}
-                </span>
+                {studio.offices.map((o) => (
+                  <a
+                    key={o.city.en}
+                    href={`tel:${o.phone.replace(/\s/g, '')}`}
+                    className="group mt-2 block text-[0.95rem] text-ink-100 transition-colors hover:text-brulee"
+                  >
+                    <span className="block text-xs text-ink-45">{pick(o.city)}</span>
+                    <span dir="ltr" className="block w-fit">
+                      {o.phone}
+                    </span>
+                  </a>
+                ))}
               </span>
-            </a>
+            </div>
 
             <div className="flex items-start gap-4 border-t border-line-soft/70 pt-6">
               <MapPin size={17} className="mt-1 shrink-0 text-brulee" />
               <span>
                 <span className="label block">{pick(COPY.studio)}</span>
                 {studio.offices.map((o) => (
-                  <span key={o.en} className="mt-2 block text-[0.95rem] text-ink-100">
-                    {pick(o)}
+                  <span key={o.city.en} className="mt-2 block text-[0.95rem] text-ink-100">
+                    {pick(o.city)}
+                    {o.address && (
+                      <span className="block text-sm leading-relaxed text-ink-45">
+                        {pick(o.address)}
+                      </span>
+                    )}
                   </span>
                 ))}
               </span>

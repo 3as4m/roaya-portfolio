@@ -63,11 +63,17 @@ export function Footer() {
               <p className={`label mb-4 ${arText}`}>{pick(COPY.studio)}</p>
               <ul className={`space-y-2.5 text-sm text-ink-70 ${arText}`}>
                 {studio.offices.map((o) => (
-                  <li key={o.en}>{pick(o)}</li>
+                  <li key={o.city.en}>
+                    {pick(o.city)}
+                    <a
+                      href={`tel:${o.phone.replace(/\s/g, '')}`}
+                      dir="ltr"
+                      className="block w-fit text-ink-45 transition-colors hover:text-ink-100"
+                    >
+                      {o.phone}
+                    </a>
+                  </li>
                 ))}
-                <li dir="ltr" className="w-fit">
-                  {studio.phone}
-                </li>
               </ul>
             </div>
             <div>
