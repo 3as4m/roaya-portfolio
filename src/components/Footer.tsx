@@ -62,7 +62,9 @@ export function Footer() {
             <div>
               <p className={`label mb-4 ${arText}`}>{pick(COPY.studio)}</p>
               <ul className={`space-y-2.5 text-sm text-ink-70 ${arText}`}>
-                <li>{lang === 'ar' ? 'الرياض، السعودية' : studio.city}</li>
+                {studio.offices.map((o) => (
+                  <li key={o.en}>{pick(o)}</li>
+                ))}
                 <li dir="ltr" className="w-fit">
                   {studio.phone}
                 </li>

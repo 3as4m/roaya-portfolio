@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { principles, timeline, studio } from '../lib/content';
-import { usePick } from '../lib/language';
+import { usePick, useLanguage } from '../lib/language';
 
 const COPY = {
   eyebrow: { en: 'Studio', ar: 'الاستوديو' },
@@ -21,6 +21,7 @@ const FINAL = {
 
 export function Studio() {
   const pick = usePick();
+  const { lang } = useLanguage();
 
   return (
     <div>
@@ -83,7 +84,7 @@ export function Studio() {
             <div>
               <h2 className="text-minor max-w-lg font-bold">{pick(COPY.reelSays)}</h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-45">
-                {pick(COPY.workingOutOf)} {studio.city}.
+                {pick(COPY.workingOutOf)} {studio.offices.map((o) => pick(o)).join(lang === 'ar' ? ' و' : ' and ')}.
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap gap-3">

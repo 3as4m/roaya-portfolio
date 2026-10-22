@@ -2,7 +2,10 @@ export const studio = {
   name: 'Roaya',
   arabicName: 'رؤية',
   tagline: { en: 'AI production machine', ar: 'منظومة إنتاج بالذكاء الاصطناعي' },
-  city: 'Riyadh, Saudi Arabia',
+  offices: [
+    { en: 'Riyadh, Saudi Arabia', ar: 'الرياض، السعودية' },
+    { en: 'Istanbul, Turkey', ar: 'إسطنبول، تركيا' },
+  ],
   // TODO: confirm contact details.
   email: 'info@roaya.com',
   phone: '+90 537 960 63 50',

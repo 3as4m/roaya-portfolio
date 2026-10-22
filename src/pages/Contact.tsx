@@ -22,7 +22,7 @@ const COPY = {
   },
   email: { en: 'Email', ar: 'البريد الإلكتروني' },
   phone: { en: 'Phone', ar: 'الهاتف' },
-  studio: { en: 'Studio', ar: 'الاستوديو' },
+  studio: { en: 'Offices', ar: 'المكاتب' },
   name: { en: 'Name', ar: 'الاسم' },
   namePlaceholder: { en: 'Your name', ar: 'اسمك' },
   company: { en: 'Company', ar: 'الشركة' },
@@ -168,7 +168,11 @@ export function Contact() {
               <MapPin size={17} className="mt-1 shrink-0 text-brulee" />
               <span>
                 <span className="label block">{pick(COPY.studio)}</span>
-                <span className="mt-2 block text-[0.95rem] text-ink-100">{studio.city}</span>
+                {studio.offices.map((o) => (
+                  <span key={o.en} className="mt-2 block text-[0.95rem] text-ink-100">
+                    {pick(o)}
+                  </span>
+                ))}
               </span>
             </div>
           </div>
