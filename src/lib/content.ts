@@ -5,7 +5,7 @@ export const studio = {
   city: 'Riyadh, Saudi Arabia',
   // TODO: confirm contact details.
   email: 'info@roaya.com',
-  phone: '+966 56 132 3381',
+  phone: '+90 537 960 63 50',
   founded: 2018,
 };
 
